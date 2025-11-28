@@ -1,0 +1,50 @@
+import 'package:flutter/material.dart';
+class StateClass extends StatefulWidget {
+  const StateClass({super.key});
+
+  @override
+  State<StateClass> createState() => _StateClassState();
+
+}
+
+class _StateClassState extends State<StateClass> {
+  int num=0;
+
+  @override
+  Widget build(BuildContext context) {
+
+    return Scaffold(
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(num.toString(), style: TextStyle(fontSize: 60, color: Colors.deepOrange),),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  IconButton(
+                      onPressed: (){
+                    setState(() {
+                      num++;
+                    });
+                  }, icon: Icon(
+                      size: 50,
+                      Icons.add)),
+                  IconButton(onPressed: (){
+                    setState(() {
+                      num--;
+                    });
+                  }, icon: Icon(
+                      size: 50,
+                      Icons.minimize_sharp)),
+
+                ],
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
